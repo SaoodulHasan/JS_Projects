@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Windows_Clock_App_Icon.svg/6400px-Windows_Clock_App_Icon.svg.png"
+      type="image/x-icon"
+    />
+    <title>Digital Clock</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", serif;
+      }
+      section {
+        background: #2d2e43;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      h1 {
+        text-align: center;
+        font-weight: 700;
+        font-size: 40px;
+        color: white;
+      }
+      h3 {
+        padding-right: 175px;
+        margin-bottom: 30px;
+        color: white;
+        font-weight: 200;
+        margin-top: -18px;
+        font-size: 15px;
+        text-align: right;
+      }
+      .mainDiv {
+        position: relative;
+        transform-style: preserve-3d;
+        border-radius: 0px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: #0b0b0b;
+        color: white;
+        width: 45vw;
+        height: 40vh;
+      }
+      .mainDiv::before {
+        content: "";
+        position: absolute;
+        inset: 0px;
+        background: conic-gradient(
+          from 90deg at 40% -25%,
+          #e014d3,
+          #3853ff,
+          #3853ff,
+          #e6390a,
+          #de0d0d,
+          #d61039,
+          #cf1261,
+          #c71585,
+          #cf1261,
+          #d61039,
+          #de0d0d,
+          #ee6907,
+          #f79d03,
+          #ffd700,
+          #ffd700,
+          #ffd700
+        );
+        filter: blur(10px);
+        transform: translate3d(0px, 0px, -1px);
+        border-radius: inherit;
+        pointer-events: none;
+      }
+      .time {
+        display: flex;
+        justify-content: center;
+      }
+      #date {
+        font-size: 25px;
+        margin-top: -30px;
+        font-weight: 500;
+        text-align: center;
+        background: -webkit-linear-gradient(#ff00a2, #e2ff61);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .timeMain {
+        font-size: 150px;
+        font-weight: 600;
+      }
+      #hour {
+        background: -webkit-linear-gradient(#03c3e6, #2c0bff);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      #dot {
+        color: #c1c1c1;
+      }
+      #min {
+        background: -webkit-linear-gradient(#ffa90b, #ff0655);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .exTime {
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 49px;
+        align-items: center;
+        padding-bottom: 56px;
+      }
+      #amPm {
+        font-weight: 700;
+        background: -webkit-linear-gradient(rgb(255, 166, 0), #fffda3);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      #sec {
+        font-weight: 700;
+        background: -webkit-linear-gradient(rgb(0, 106, 255), #fffda3);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <h1>Digital Clock</h1>
+        <h3>HTML CSS & JavaScript</h3>
+        <div class="mainDiv">
+          <div class="time">
+            <span class="timeMain" id="hour">08</span>
+            <span class="timeMain" id="dot">:</span>
+            <span class="timeMain" id="min">30</span>
+            <div class="exTime">
+              <p id="amPm">AM</p>
+              <p id="sec">20</p>
+            </div>
+          </div>
+          <div id="date">Jan, Sunday 01</div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "June",
+      "July",
+      "Aug",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    function amPm(hour) {
+      if (hour >= 12) {
+        return "PM";
+      } else {
+        return "AM";
+      }
+    }
+    function timeData() {
+      let curDate = new Date();
+      dateArr = curDate.toLocaleTimeString().split(":");
+
+      let hour = curDate.getHours();
+      let min = curDate.getMinutes();
+      let sec = curDate.getSeconds();
+      let year = curDate.getFullYear();
+      let day = curDate.getDay();
+      let date = curDate.getDate();
+
+      let month = curDate.getMonth();
+      document.getElementById("hour").innerText = dateArr[0];
+      document.getElementById("min").innerText = dateArr[1];
+      document.getElementById("sec").innerText = sec;
+
+      document.getElementById(
+        "date"
+      ).innerText = `${months[month]}, ${days[day]} ${date} `;
+      document.getElementById("amPm").innerText = amPm(hour);
+    }
+    timeData();
+    setInterval(() => {
+      timeData();
+    }, 1000);
+  </script>
+</html>
