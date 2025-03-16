@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;padding: 0;
+    font-family: "Montserrat", serif;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #333c4a;
+}
+.left{
+    background-image: url('https://media.istockphoto.com/id/610041376/photo/beautiful-sunrise-over-the-sea.jpg?s=612x612&w=0&k=20&c=R3Tcc6HKc1ixPrBc7qXvXFCicm8jLMMlT99MfmchLNA=');
+    background-size: cover;
+    width: 60vh;
+    border-radius: 25px;
+    height: 90vh;-webkit-box-shadow: -5.5px -6.5px 24.5px -1.5px rgba(21, 21, 21, 0.52);
+    -moz-box-shadow: -5.5px -6.5px 24.5px -1.5px rgba(21, 21, 21, 0.52);
+    box-shadow: -5.5px -6.5px 24.5px -1.5px rgba(21, 21, 21, 0.52);
+}
+.colorFilter{background-image: linear-gradient(120deg, #f193fbc4 0%, #f5576cbe 100%);
+    color: white;
+    display: flex;flex-direction: column;
+    justify-content: space-between;
+    border-radius: 25px;
+    height: 84vh;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+}
+.up{
+    margin-top: 15px;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.locIcon{display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: small;
+    font-weight: 700;
+    margin-top: 10px;
+}
+#dayTitle{
+    font-size:x-large;
+    font-weight: 700;
+}
+#dateTitle{
+    font-size:small;
+    font-weight: 600;
+    margin-top: 10px;
+
+}
+.down{
+    margin-bottom: 30px;
+}
+#imgWeather{
+    width: 90px;
+    height: 90px;
+    margin-left: -25px;
+    margin-bottom: -30px;
+}
+#tempTitle{
+    font-size:xx-large;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.right{
+    display: flex;align-items: center;
+    justify-content: center;flex-direction: column;
+    background: #212730;
+    width: 60vh;
+    border-radius: 0px 25px 25px 0px;
+    height: 80vh;
+    padding: 15px;
+}
+.rContainer{
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+    height: 70vh;
+    justify-content: space-between;
+}
+.top{
+    display: flex;flex-wrap: wrap;
+    justify-content: space-between;
+}
+#card{
+    display: flex;
+    justify-content: space-around;align-items: center;
+    margin-top: 30px;
+    font-size: small;
+    font-weight: normal;
+    padding: 10px;
+    color: white;
+    background: #252c36;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 10px;-webkit-box-shadow: -5.5px -6.5px 24.5px -1.5px rgba(21, 21, 21, 0.52);
+    -moz-box-shadow: -5.5px -6.5px 24.5px -1.5px rgba(21, 21, 21, 0.52);
+    box-shadow: -5.5px -6.5px 24.5px -1.5px rgba(21, 21, 21, 0.52);
+
+}
+
+.iconCard{
+    width: 35px;
+    height:  35px;
+    background-size: cover;filter: invert(1);
+}
+#citySearch{background-image: linear-gradient(270deg, #f177ff 0%, #ff425b 100%);
+    width: 50vh;
+    color: white;
+    height: 7vh;
+    outline: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 5px;
+    font-size: large;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;-webkit-box-shadow: -5.5px -6.5px 24.5px -1.5px rgba(21, 21, 21, 0.52);
+    -moz-box-shadow: -5.5px -6.5px 24.5px -1.5px rgba(21, 21, 21, 0.52);
+    box-shadow: -5.5px -6.5px 24.5px -1.5px rgba(21, 21, 21, 0.52);
+}
+#citySearch::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+  

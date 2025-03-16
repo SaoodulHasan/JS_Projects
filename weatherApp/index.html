@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=pin_drop"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <div class="colorFilter">
+          <div class="up">
+            <h1 id="dayTitle">-</h1>
+            <h3 id="dateTitle">-</h3>
+            <div class="locIcon">
+              <span class="material-symbols-outlined"> pin_drop </span>
+              <span id="textLoc">-</span>
+            </div>
+          </div>
+          <div class="down">
+            <img src="" alt="" id="imgWeather" />
+            <h1 id="tempTitle">- °C</h1>
+            <h2 id="weatherMode">-</h2>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="rContainer">
+          <div class="top">
+            <div id="card">
+              <img
+                src="https://static-00.iconduck.com/assets.00/wind-icon-2048x1893-j3tucqal.png"
+                alt=""
+                class="iconCard"
+              />
+              <div class="textCard">
+                <h3>Wind</h3>
+                <h4 id="wind">-</h4>
+              </div>
+            </div>
+            <div id="card">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/219/219816.png"
+                alt=""
+                class="iconCard"
+              />
+              <div class="textCard">
+                <h3>Humidity</h3>
+                <h4 id="humidity">-</h4>
+              </div>
+            </div>
+            <div id="card">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/6617/6617991.png"
+                alt=""
+                class="iconCard"
+              />
+              <div class="textCard">
+                <h3>Max Temp</h3>
+                <h4 id="maxTemp">-</h4>
+              </div>
+            </div>
+            <div id="card">
+              <img
+                src="https://cdn3.iconfinder.com/data/icons/cool-me-down-thermometers/70/Thermometer_freezing-512.png"
+                alt=""
+                class="iconCard"
+              />
+              <div class="textCard">
+                <h3>Min Temp</h3>
+                <h4 id="minTemp">-</h4>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <form id="inpForm">
+              <input
+                type="text"
+                placeholder="Search for city"
+                id="citySearch"
+                autocomplete="off"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
