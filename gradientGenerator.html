@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="shortcut icon"
+      href="https://cdn-icons-png.flaticon.com/512/3124/3124916.png"
+      type="image/x-icon"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gradient Generator</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+      * {
+        font-family: "Inter", serif;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-image: linear-gradient(to right top, #051937, #008793);
+      }
+      section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #myButton1 {
+        width: 20vh;
+        background: #051937;
+        color: white;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 20px;
+        padding-left: 20px;
+        font-size: large;
+        outline: none;
+        border: none;
+        border-radius: 50px;
+        margin-right: 10px;
+        cursor: pointer;
+        box-shadow: 4px 10px 21px 8px rgba(0, 0, 0, 0.1);
+        font-weight: 500;
+      }
+      #myButton1:hover {
+        box-shadow: none;
+      }
+      #myButton2:hover {
+        box-shadow: none;
+      }
+      #myButton2 {
+        width: 20vh;
+        font-weight: 500;
+        margin-left: 10px;
+        background: #00ff1e;
+        color: #000000;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 20px;
+        padding-left: 20px;
+        font-size: large;
+        outline: none;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: -8px 10px 21px 8px rgba(0, 0, 0, 0.1);
+      }
+      .container {
+        display: flex;
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-size: small;
+        color: white;
+        margin-bottom: 20px;
+      }
+      .copyCode {
+        cursor: pointer;
+        width: 35vw;
+        color: white;
+        font-weight: 200;
+        background-color: rgba(66, 58, 58, 0.266);
+        border-radius: 10px;
+        border-left: 3px solid white;
+        padding: 1vw;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <button id="myButton1">#051937</button>
+        <button id="myButton2">#008793</button>
+      </div>
+      <h2>Copy your code here</h2>
+      <div class="copyCode">
+        background-image: linear-gradient(to right top, #051937 , #008793);
+      </div>
+    </section>
+  </body>
+  <script>
+    let btn1 = document.getElementById("myButton1");
+    let btn2 = document.getElementById("myButton2");
+    const hexArr = [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "0",
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+    ];
+    let hexValues = () => {
+      let code = "#";
+      for (let i = 0; i < 6; i++) {
+        let ind = Math.floor(Math.random() * hexArr.length);
+        code = code + hexArr[ind];
+      }
+      return code;
+    };
+    let rgb1 = "#051937";
+    let rgb2 = "#008793";
+    let copyDiv = document.querySelector(".copyCode");
+    const handleButton1 = () => {
+      rgb1 = hexValues();
+      document.body.style.backgroundImage = `linear-gradient(to right top, ${rgb1}, ${rgb2})`;
+      btn1.innerHTML = `${rgb1}`;
+      copyDiv.innerHTML = `background-image: linear-gradient(to right top, ${rgb1}, ${rgb2});`;
+    };
+    const handleButton2 = () => {
+      rgb2 = hexValues();
+      document.body.style.backgroundImage = `linear-gradient(to right top, ${rgb1}, ${rgb2})`;
+      btn2.innerHTML = `${rgb2}`;
+      copyDiv.innerHTML = `background-image: linear-gradient(to right top, ${rgb1}, ${rgb2});`;
+    };
+    btn1.addEventListener("click", handleButton1);
+    btn2.addEventListener("click", handleButton2);
+    copyDiv.addEventListener("click", () => {
+      let copyText = copyDiv.innerHTML;
+      navigator.clipboard.writeText(copyText.trim());
+      alert("Code Copied!");
+    });
+  </script>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      href="https://cdn-icons-png.freepik.com/256/9329/9329651.png"
+      type="image/x-icon"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO App</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap");
+      * {
+        font-family: "Inter", serif;
+        margin: 0;
+        padding: 0;
+      }
+      section {
+        background-image: linear-gradient(to right top, #051937, #8b53da);
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        background-color: #ffffff;
+        width: 40vw;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 27px 10px 219px -13px rgba(0, 0, 0, 0.57);
+        -webkit-box-shadow: 27px 10px 219px -13px rgba(0, 0, 0, 0.57);
+        -moz-box-shadow: 27px 10px 219px -13px rgba(0, 0, 0, 0.57);
+      }
+      .title {
+        margin-top: 10vh;
+        padding-left: 0;
+        display: flex;
+        font-weight: 500;
+        padding-right: 70px;
+        margin-bottom: 25px;
+      }
+      #inpAdd {
+        width: 25vw;
+        outline: none;
+        font-weight: 400;
+        padding: 13px;
+        border-radius: 50px;
+        border: none;
+        background-color: #f0f0f1;
+      }
+      #inpAdd:hover {
+        background-color: #ececed;
+      }
+      #addBtn {
+        cursor: pointer;
+        outline: none;
+        font-weight: 700;
+        width: 10vw;
+        padding: 13px;
+        border-radius: 50px;
+        border: none;
+        background-color: #fe5842;
+        color: white;
+        margin-left: -50px;
+      }
+      #addBtn:hover {
+        background-color: #fc9380;
+      }
+      .main_todo_item {
+        margin-top: 15px;
+        width: 32vw;
+        margin-bottom: 10px;
+        height: 50vh;
+        overflow: auto;
+        scroll-behavior: smooth;
+      }
+      .main_todo_item::-webkit-scrollbar {
+        width: 3px;
+        height: 12px;
+      }
+      .main_todo_item::-webkit-scrollbar-thumb {
+        background-color: #fe5842;
+        border-radius: 5px;
+      }
+      .main_todo_item::-webkit-scrollbar-thumb:hover {
+        background-color: #fc9380;
+      }
+      li {
+        display: flex;
+        justify-content: space-between;
+        outline: none;
+        font-weight: 300;
+        font-size: smaller;
+        align-items: center;
+      }
+      .delBtn {
+        outline: none;
+        margin-right: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        border: none;
+        font-size: larger;
+        background-color: #ffffff;
+        cursor: pointer;
+      }
+      .delBtn:hover {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="title"><h1>SIMPLE TO-DO APP 📝</h1></div>
+        <form>
+          <div class="addTask">
+            <input
+              type="text"
+              name=""
+              id="inpAdd"
+              placeholder="Add your Task"
+              autocomplete="off"
+            />
+            <button id="addBtn">ADD</button>
+          </div>
+        </form>
+        <div class="main_todo_item"></div>
+      </div>
+    </section>
+  </body>
+  <script>
+    const mainTodoElem = document.querySelector(".main_todo_item");
+    const inputValue = document.getElementById("inpAdd");
+    const addBtn = document.querySelector("#addBtn");
+
+    let getTodoList = () => {
+      return JSON.parse(localStorage.getItem("todoItems"));
+    };
+    let localTodoList = getTodoList() || [];
+    let addTodoList = (e) => {
+      e.preventDefault();
+      const todoListValue = inputValue.value.trim();
+      inputValue.value = "";
+      if (!localTodoList.includes(todoListValue) && todoListValue !== "") {
+        localTodoList.push(todoListValue);
+        let localTodo = [...new Set(localTodoList)];
+        localStorage.setItem("todoItems", JSON.stringify(localTodo));
+
+        const divElement = document.createElement("li");
+        divElement.classList.add("main_todo_list");
+        divElement.innerHTML = `<p>${todoListValue}</p><button class="delBtn">X</button>`;
+        mainTodoElem.appendChild(divElement);
+      }
+    };
+
+    let showTodoList = () => {
+      localTodoList.forEach((element) => {
+        const divElement = document.createElement("li");
+        divElement.classList.add("main_todo_list");
+        divElement.innerHTML = `<p>${element}</p><button class="delBtn">X</button>`;
+        mainTodoElem.appendChild(divElement);
+      });
+    };
+    showTodoList();
+
+    const removeTodoElem = (e) => {
+      let todoToRemove = e.target;
+      let todoListContent = todoToRemove.previousElementSibling.textContent;
+      let parentElem = todoToRemove.parentElement;
+      localTodoList = localTodoList.filter((curTodo) => {
+        return curTodo !== todoListContent;
+      });
+      localStorage.setItem("todoItems", JSON.stringify(localTodoList));
+      parentElem.remove();
+    };
+
+    mainTodoElem.addEventListener("click", (e) => {
+      if (e.target.classList.contains("delBtn")) {
+        removeTodoElem(e);
+      }
+    });
+    addBtn.addEventListener("click", (e) => {
+      addTodoList(e);
+    });
+  </script>
+</html>

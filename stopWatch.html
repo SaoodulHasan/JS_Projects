@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://static-00.iconduck.com/assets.00/time-stopwatch-icon-1740x2048-52j372dj.png"
+      type="image/x-icon"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background: #212121;
+      }
+      .container {
+        background: #000;
+        color: rgb(255, 208, 0);
+        border-radius: 20px;
+      }
+      .timer {
+        font-family: "Orbitron", serif;
+        display: flex;
+        background: #000;
+        align-items: center;
+        height: 40vh;
+        width: 40vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin: 50px;
+        border-radius: 50%;
+        border: 8px solid rgb(255, 208, 0);
+      }
+
+      h1 {
+        width: 55px;
+        margin-left: 5px;
+        margin-right: 5px;
+        background: -webkit-linear-gradient(#ffaa21, #fffc52);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .bottomBtnContn {
+        font-family: "Montserrat", serif;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 20px;
+        background: #000;
+      }
+      .btnStyle {
+        font-family: "Montserrat", serif;
+        background: #000;
+        border: 2px solid rgb(255, 208, 0);
+        color: rgb(255, 208, 0);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .btnStyle:hover {
+        background: #353535;
+      }
+      .bottomBtnContnTop {
+        display: flex;
+        justify-content: space-between;
+      }
+      .bottomBtnContnBottom {
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        height: 10vh;
+        margin-top: 10px;
+      }
+      #clear {
+        cursor: pointer;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: black;
+        font-size: medium;
+        padding: 5px;
+        border-radius: 10px;
+      }
+      #clear:hover {
+        background: #d7d7d7;
+      }
+    </style>
+    <title>StopWatch</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="timer">
+        <h1 id="hourTimer">00</h1>
+        :
+        <h1 id="minTimer">00</h1>
+        :
+        <h1 id="secTimer">00</h1>
+      </div>
+      <div class="bottomBtnContn">
+        <div class="bottomBtnContnTop">
+          <button id="reset" class="btnStyle">Reset</button>
+          <button id="start" class="btnStyle">Start</button>
+          <button id="pause" class="btnStyle">Pause</button>
+          <button id="lap" class="btnStyle">Lap</button>
+        </div>
+        <div class="bottomBtnContnBottom">
+          <div class="lap"></div>
+        </div>
+        <button id="clear">Clear All</button>
+      </div>
+    </div>
+    <script>
+      let hourTimer = document.getElementById("hourTimer");
+      let minTimer = document.getElementById("minTimer");
+      let secTimer = document.getElementById("secTimer");
+      let reset = document.getElementById("reset");
+      let start = document.getElementById("start");
+      let pause = document.getElementById("pause");
+      let lap = document.getElementById("lap");
+      let lapTime = document.querySelector(".lap");
+      let clear = document.getElementById("clear");
+      let inSec = 0;
+      let inMin = 0;
+      let inHour = 0;
+
+      pause.style.display = "none";
+
+      start.addEventListener("click", () => {
+        let myInterval = setInterval(() => {
+          inSec++;
+          if (inSec < 10) {
+            inSec = `0${inSec}`;
+          }
+          secTimer.innerText = `${inSec}`;
+          if (inSec == 60) {
+            inMin++;
+            inSec = 0;
+            if (inMin < 10) {
+              inMin = `0${inMin}`;
+            }
+
+            minTimer.innerText = `${inMin}`;
+          }
+          if (inMin == 60) {
+            inHour++;
+            inMin = 0;
+            if (inHour < 10) {
+              inHour = `0${inHour}`;
+            }
+            hourTimer.innerText = `${inHour}`;
+          }
+        }, 1000);
+        start.style.display = "none";
+        pause.style.display = "inline";
+        reset.addEventListener("click", () => {
+          inSec = 0;
+          inMin = 0;
+          inHour = 0;
+          if (inSec < 10) {
+            secTimer.innerText = `0${inSec}`;
+          } else {
+            secTimer.innerText = `${inSec}`;
+          }
+          if (inMin < 10) {
+            minTimer.innerText = `0${inMin}`;
+          } else {
+            minTimer.innerText = `${inMin}`;
+          }
+          if (inHour < 10) {
+            hourTimer.innerText = `0${inHour}`;
+          } else {
+            hourTimer.innerText = `${inHour}`;
+          }
+
+          clearInterval(myInterval);
+
+          start.style.display = "inline";
+          pause.style.display = "none";
+        });
+        pause.addEventListener("click", () => {
+          secTimer.innerText = `${inSec}`;
+          if (inMin < 10) {
+            minTimer.innerText = `0${inMin}`;
+          } else {
+            minTimer.innerText = `${inMin}`;
+          }
+          if (inHour < 10) {
+            hourTimer.innerText = `0${inHour}`;
+          } else {
+            hourTimer.innerText = `${inHour}`;
+          }
+          clearInterval(myInterval);
+          start.style.display = "inline";
+          pause.style.display = "none";
+        });
+      });
+      lap.addEventListener("click", () => {
+        lapItem = document.createElement("div");
+        lapItem.style = `
+        display: flex;  justify-content: center;  border: 2px solid grey;  color: grey;  border-radius: 50px;margin-top: 10px;margin-bottom: 10px;padding: 5px;`;
+        lapItem.innerText = `${inHour}:${inMin}:${inSec}`;
+        lapTime.appendChild(lapItem);
+      });
+      clear.addEventListener("click", () => {
+        lapTime.innerHTML = ``;
+      });
+    </script>
+  </body>
+</html>
