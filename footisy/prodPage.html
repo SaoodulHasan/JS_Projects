@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product - Footisy</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=local_mall"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="section-navbar"></header>
+    <div class="navSpace"></div>
+    <!-- Product Page -->
+    <div class="productPage"></div>
+    <!-- Footer -->
+    <footer class="section-footer"></footer>
+    <script type="module" src="./src/navbar.js"></script>
+    <script type="module" src="./src/footer.js"></script>
+    <script>
+      const prodPageItem = JSON.parse(localStorage.getItem("prodPageItem"));
+      document.querySelector(".productPage").innerHTML = `
+      <div class="productPageLeft">
+        <img src="${prodPageItem.imageURL}" alt="" />
+      </div>
+      <div class="productPageRight">
+        <div class="productPageRightTop">
+          <p>Brand : ${prodPageItem.brand}</p>
+          <h3>${prodPageItem.name}</h3>
+          <h1>$${prodPageItem.price}</h1>
+          <p class="availableLabel">Availabity :</p>
+          <p class="availableLabel stockAvail">In Stock</p>
+          <button id="productPagePageBtn">
+            <span class="material-icons"> local_mall </span><span> </span> Add
+            To Cart
+          </button>
+          <p>Free Delivery on Tuesday</p>
+        </div>
+        <div class="productPageRightBottom"></div>
+      </div>`;
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      document
+        .querySelector("#productPagePageBtn")
+        .addEventListener("click", () => {
+          cart.push(prodPageItem);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          localStorage.removeItem("prodPageItem");
+          window.location = "/addToCart.html";
+        });
+    </script>
+  </body>
+</html>

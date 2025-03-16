@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store - Footisy</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=local_mall"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="section-navbar"></header>
+    <div class="navSpace"></div>
+    <!-- Store Page -->
+    <div class="storePage">
+      <div id="prodSec">
+        <div class="prodCont">
+          <div class="prodTop">
+            <h1>Store</h1>
+            <div class="prodFilter">
+              All Products
+              <button id="lowToHighBtn">
+                <span class="material-icons"> sort </span>
+              </button>
+              <button id="highToLowBtn">
+                <span class="material-icons"> filter_list </span>
+              </button>
+            </div>
+          </div>
+          <div class="prodBottom"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="section-footer"></footer>
+    <script type="module" src="./src/navbar.js"></script>
+    <script type="module" src="./src/productCards.js"></script>
+    <script type="module" src="./src/footer.js"></script>
+  </body>
+</html>
