@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --bg: #0f1115;
+  --surface: #171b22;
+  --card: #1e2430;
+  --radius: 10px;
+  --text: #f5f5f5;
+  --text-light: #a0a7b5;
+
+  --border: #2c3443;
+
+  --primary: #e50914;
+  --primary-hover: #ff2d55;
+
+  --hero-image: url("./src/images/bgDark.png");
+  --logo: url("./src/images/logo-dark.png");
+
+  --navbar: #000;
+}
+body.light {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --radius: 10px;
+
+  --text: #18181b;
+  --text-light: #6b7280;
+
+  --border: #e5e7eb;
+
+  --primary: #e50914;
+  --primary-hover: #ff2d55;
+
+  --hero-image: url("./src/images/bgLight.png");
+  --logo: url("./src/images/logo-light.png");
+
+  --navbar: #ffffff;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  font-family: "Inter";
+  display: flex;
+  overflow: hidden;
+}
+
+/* Hero Section */
+
+.mainCont {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.heroSection {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+}
+#bgImg {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.heroText {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  z-index: 2;
+  color: var(--text);
+}
+.heroText h1 {
+  font-family: "poppins";
+  font-weight: 600;
+}
+.heroText p {
+  margin-top: 15px;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+.heroSearch {
+  background: var(--surface);
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+.heroSearch input {
+  background: var(--surface);
+  font-family: "Inter";
+  font-size: larger;
+  color: var(--text-light);
+  padding: 5px;
+  border: none;
+  outline: none;
+  width: 20vw;
+  margin-right: 20px;
+}
+.heroSearchBtn {
+  background: var(--primary-hover);
+  outline: none;
+  border: none;
+  border-radius: var(--radius);
+  font-family: "Inter";
+  font-size: larger;
+  color: var(--text);
+  padding: 15px;
+  margin: -25px -10px;
+  text-align: center;
+  cursor: pointer;
+}
+.heroSearchBtn:hover {
+  background: var(--primary);
+}

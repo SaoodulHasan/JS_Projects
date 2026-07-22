@@ -1,0 +1,52 @@
+.search {
+  width: 60vw;
+}
+.search input {
+  width: 100%;
+  font-size: large;
+  margin-right: 500px;
+  padding: 13px;
+}
+.navSearchBtn {
+  padding: 7px 7px 7px 10px;
+}
+.navSearchBtn svg {
+  width: 30px;
+  height: 30px;
+}
+.topleftResult {
+  color: var(--text);
+  margin-top: 50px;
+  margin-left: 20px;
+}
+.ResultMain {
+  width: 100%;
+}
+
+.resultMainCard {
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--border);
+  margin: 20px;
+  border-radius: var(--radius);
+  display: flex;
+}
+.resultMainCard:hover {
+  background: var(--surface);
+  cursor: pointer;
+}
+.resultMainCard img {
+  width: 160px;
+  object-fit: cover;
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+.resultMainCenter {
+  padding: 20px;
+  width: 100%;
+}
+.resultMainRight {
+  padding: 20px;
+}
+.favBtn {
+  background: none;
+}

@@ -1,0 +1,79 @@
+/* Cards section reusable classes */
+.cardSection {
+  padding-left: 75px;
+  padding-right: 75px;
+}
+.secTitle {
+  margin: 15px 0px 15px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 5px solid var(--primary-hover);
+}
+.secTitle h4 {
+  font-family: "Inter";
+  color: var(--text);
+  font-size: larger;
+  margin-left: 10px;
+}
+/* Carousel Styling */
+.carouselWrapper {
+  position: relative;
+}
+.cardsCarousel {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+.Card {
+  margin: 0px 10px 0px 10px;
+  position: relative;
+  cursor: pointer;
+}
+.cardImg {
+  object-fit: cover;
+  width: 190px;
+  height: 295px;
+  border-radius: 10px;
+}
+.cardRating {
+  top: 5px;
+  left: 5px;
+  position: absolute;
+  border-radius: 10px;
+  width: 45px;
+  padding: 5px;
+  display: flex;
+  color: white;
+  align-items: center;
+  background: #00000091;
+}
+.carouselBtnStyle {
+  background: var(--surface);
+  width: 25px;
+  height: 25px;
+  padding: 5px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  cursor: pointer;
+}
+.carouselBtnStyle:hover {
+  background: var(--border);
+}
+
+.carouselLeft {
+  position: absolute;
+  top: 135px;
+  z-index: 1000;
+}
+.carouselBtnStyle svg {
+  fill: var(--text);
+}
+.carouselRight {
+  position: absolute;
+  top: 135px;
+  z-index: 1000;
+  right: 0px;
+}

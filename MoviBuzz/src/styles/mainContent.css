@@ -1,0 +1,17 @@
+.mainContent {
+  width: 85vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+.mainCont {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  display: none;
+}

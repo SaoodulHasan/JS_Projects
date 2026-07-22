@@ -1,0 +1,90 @@
+/* SideBar Styling */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--surface);
+  height: 100vh;
+  width: 15vw;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+}
+.logo {
+  display: flex;
+  justify-content: center;
+}
+.logoImg {
+  width: 200px;
+}
+.navColumn {
+  display: flex;
+  width: 100%;
+}
+
+.navList {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.navList li {
+  outline: none;
+  list-style: none;
+  font-size: normal;
+  color: var(--text-light);
+  border-radius: var(--radius);
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.navList a {
+  outline: none;
+  text-decoration: none;
+}
+.hoverClass:hover {
+  background: var(--card);
+  color: var(--primary-hover);
+}
+.sidebar hr {
+  border: 1px solid var(--border);
+  width: 80%;
+}
+
+.genreColumn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--text);
+  font-size: small;
+}
+.genreColumn p {
+  font-size: larger;
+  font-weight: bold;
+  padding: 15px 0px 0px 35px;
+  color: var(--text-light);
+}
+
+.genreColumn a {
+  text-decoration: none;
+}
+.genreColumn ul li {
+  font-size: larger;
+  outline: none;
+  color: var(--text);
+  margin-top: 15px;
+  padding: 7px 50px 7px 50px;
+}
+.viewBtn {
+  outline: none;
+  border: none;
+  color: var(--primary);
+  background: #00000000;
+  font-size: large;
+  text-align: left;
+  margin-top: 30px;
+  padding-left: 50px;
+  cursor: pointer;
+  display: flex;
+}

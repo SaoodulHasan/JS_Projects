@@ -1,0 +1,194 @@
+.heroDet {
+  height: 50vh;
+  background: var(--navbar);
+  display: flex;
+  color: var(--text);
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 75px;
+}
+#backBtn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  margin: 20px 0px 20px 0px;
+  width: 135px;
+  padding: 5px;
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+}
+#backBtn:hover {
+  color: var(--text-light);
+  fill: var(--text-light);
+}
+.detailsBlock {
+  display: flex;
+  margin-bottom: 15px;
+}
+.detLeft {
+  margin-right: 60px;
+}
+
+#detPageImg {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.detRightTitle {
+  display: flex;
+  align-items: center;
+}
+.detRight {
+  display: flex;
+  flex-direction: column;
+}
+.detRightTitle h1 {
+  font-weight: bold;
+  font-size: 50px;
+}
+.ratingStyle {
+  position: initial;
+  display: flex;
+  margin-left: 20px;
+  align-items: center;
+  color: rgb(255, 153, 0);
+  font-weight: bold;
+  background: #171717;
+  border-radius: var(--radius);
+  padding: 5px;
+}
+
+.detRightStats {
+  color: var(--text-light);
+  font-size: normal;
+  margin-bottom: 15px;
+}
+
+.detBtnStyle {
+  color: var(--text);
+  background: var(--navbar);
+  cursor: pointer;
+  font-size: larger;
+  outline: none;
+  border: 1px solid var(--border);
+  padding: 15px;
+  border-radius: var(--radius);
+  margin-right: 15px;
+  display: inline-flex;
+  align-items: center;
+}
+.detBtnStyle:hover {
+  background: var(--border);
+}
+#detRightDesc {
+  margin-top: 15px;
+  color: var(--text-light);
+  width: 80%;
+}
+.detCont {
+  display: flex;
+}
+.detContLeft {
+  width: 55vw;
+}
+.castCard {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.castCard img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.castCard h3 {
+  color: var(--text);
+  font-size: medium;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.castCard h4 {
+  color: var(--text-light);
+  font-size: small;
+  width: 150px;
+  text-align: center;
+}
+
+.detContRight {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+}
+.detCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  width: 100%;
+  border-radius: var(--radius);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+.detCard ul {
+  list-style: none;
+  color: var(--text);
+}
+.detCard ul li {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+.detCardDetails {
+  margin-left: 10px;
+  display: flex;
+  font-size: large;
+  width: 90%;
+  justify-content: space-between;
+}
+.ratingDetCard {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  width: 100%;
+  border-radius: var(--radius);
+  padding: 20px;
+  justify-content: center;
+}
+.ratingDetCardInner {
+  display: flex;
+  padding: 30px;
+}
+#ratingSpan {
+  color: var(--text);
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+#tomatoSpan {
+  color: var(--text);
+  font-size: xx-large;
+  font-weight: bold;
+}
+.ratingDetCardInnerInner {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+.ratingDetCardInnerUnit {
+  color: var(--text-light);
+  font-size: large;
+}
+.ratingDetCardTitle {
+  margin-top: 10px;
+  color: var(--text);
+}
+.detRelDate {
+  text-align: right;
+}

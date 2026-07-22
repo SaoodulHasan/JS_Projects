@@ -1,0 +1,15 @@
+/* Footer Styling */
+.footer {
+  margin-top: 15px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+.footer p {
+  margin-right: 15px;
+  font-size: small;
+}
